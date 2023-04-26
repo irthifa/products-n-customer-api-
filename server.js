@@ -43,15 +43,15 @@ app.post("/api/customer/registration/", (req, res, next) => {
         } = req.body;
         
         //validations
-        const emailRegEx = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0.9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
-        const creditCardregEx = /^\d{12}$/;
+        const emailRegEx = /^[a-z0-9]+@[a-z]+\.[a-z]{2,3}$/;
+        const creditCardRegEx = /^\d{12}$/;
         
         if(emailRegEx.test(email)!=true){
             res.status(400).send("Invalid Email Address");
             return;
         }
         
-        if(creditCardregEx.test(cardNumber)!=true){
+        if(creditCardRegEx.test(cardNumber)!=true){
             res.status(400).send("Invalid Credit Card Number");
             return;
         }
