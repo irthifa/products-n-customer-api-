@@ -315,7 +315,7 @@ app.post("/api/customer/", (req, res, next) => {
             } else {
                 res.json({
                     "message": "customer %NAME% has registered".replace("%NAME%",req.body.name),
-                    "customerId": this.lastID
+                    "customerId": "%id%".replace("%id%", this.lastID)
                 })
             }
 
